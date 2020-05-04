@@ -24,14 +24,14 @@ class App extends React.Component {
     ]
   }
 
-  sendMessage = (body) => {
+  sendMessage = (body, file) => {
 
     const newMessage = {
       id:3,
       user_id:1,
       username:'John',
       body:body,
-      file:'/images/file3.jpeg'
+      file:file,
     }
 
    this.setState({messages: [...this.state.messages, newMessage]});

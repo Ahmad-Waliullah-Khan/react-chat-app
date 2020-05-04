@@ -1,26 +1,54 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Chats from './components/Chats.js';
+import SendMessage from './components/SendMessage.js';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+  state = {
+    messages: [
+      {
+        id:1,
+        user_id:1,
+        username:'John',
+        body:'Hey!',
+        file:'/images/file1.png'
+      },
+      {
+        id:2,
+        user_id:2,
+        username:'Ahmad',
+        body:'Hello!',
+        file:'/images/file2.jpeg'
+      },
+    ]
+  }
+
+  sendMessage = (body) => {
+
+    const newMessage = {
+      id:3,
+      user_id:1,
+      username:'John',
+      body:body,
+      file:'/images/file3.jpeg'
+    }
+
+   this.setState({messages: [...this.state.messages, newMessage]});
+  }
+
+  render () {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <h1>Chat App</h1>
+          <Chats messages={this.state.messages} />
+          <SendMessage sendMessage={this.sendMessage} />
+        </header>
+      </div>
+    );
+  }
+
 }
 
 export default App;

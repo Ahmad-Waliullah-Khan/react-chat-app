@@ -7,7 +7,7 @@ class Message extends React.Component {
       <div>
         <div className="alert alert-success" role="alert">
           <h4 className="alert-heading">{ body }</h4>
-          <p>{ file }</p>
+          <img src={file} />
           <hr />
           <p className="mb-0">{username}</p>
         </div>
